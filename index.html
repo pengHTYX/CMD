@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Paper title">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CMD: Controllable Multiview Diffusion for 3D Editing and Progressive Generation</title>
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+  
+      gtag('js', new Date());
+  
+      gtag('config', 'G-PYVRSFMDRL');
+    </script>
+  
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+  
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"></script>
+  </head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+        </div> -->
+      </div> 
+    </div>
+
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CMD: Controllable Multiview Diffusion for 3D Editing and Progressive Generation</h1>
+            <h2 style="color:#5a6268;">SIGGRAPH 2025 (Conference Track)</h2>
+          </br>
+            <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://penghtyx.github.io/yuki-lipeng/">Peng Li</a><sup>1</sup>,</span>
+            <span class="author-block">Suizhi Ma<sup>2</sup>,</span>
+            <span class="author-block">Jialiang Chen<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://liuyuan-pal.github.io/">Yuan Liu</a><sup>1&dagger;</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://cong-yi.github.io/">Congyi Zhang</a><sup>3</sup>,</span>
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="http://wei-xue.com/index.htm">Wei Xue</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://clinplayer.github.io/">Wenhan Luo</a><sup>1&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.ubc.ca/~sheffa/">Alla Sheffer</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.hku.hk/people/academic-staff/wenping">Wenping Wang</a><sup>4</sup>,</span>
+            </span>
+            <span class="author-block">
+             <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Yike Guo</a><sup>1</sup>
+            </span>
+          </div>
+          <br>
+          <!-- <sup>*</sup>The first two authors contribute equally. &nbsp;&nbsp; -->
+          <sup>&dagger;</sup>Corresponding authors. &nbsp;&nbsp;
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>HKUST,</span>
+            <span class="author-block"><sup>2</sup>Johns Hopkins University,</span>
+            <span class="author-block"><sup>3</sup>University of British Columbia,</span>
+            <span class="author-block"><sup>4</sup>Texas A&M University</span>
+           
+            
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arxiv</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2505.07003"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arxiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/pengHTYX/CMD/tree/page#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+     <div class="column is-full-width">
+        <div class="column">
+          <img src="static/assets/teaser.jpg" alt="teaser" style="width:100%">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 180px;">
+            <p>We present a novel conditional multiview diffusion model (<b>CMD</b>) for <span style="color: green;"><b>easy-to-use local 3D editing</b></span>  of a 3D model by editing a rendered view <span style="color: red;"><b>within 20 seconds</b></span> and the single-view <span style="color: green;"><b>progressively generating a complex 3D model part by part</b></span> with more fine details and structures. </p>
+
+          </div>
+        </div>
+      </div>
+    <!-- Teaser video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="column">
+            <video id="teaser" autoplay muted loop playsinline height="100%" >
+              <source src="static/assets/fast_forward.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    
+  </div>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p >
+         Recently, 3D generation methods have shown their powerful ability to automate 3D model creation. However, most 3D generation methods only rely on an input image or a text prompt to generate
+          a 3D model, which lacks the control of each component of the generated 3D model. Any modifications of the input image lead to an
+          entire regeneration of the 3D models. In this paper, we introduce
+          a new method called CMD that generates a 3D model from an input image while enabling flexible local editing of each component
+          of the 3D model. In CMD, we formulate the 3D generation as a
+          conditional multiview diffusion model, which takes the existing
+          or known parts as conditions and generates the edited or added
+          components. This conditional multiview diffusion model not only
+          allows the generation of 3D models part by part but also enables
+          local editing of 3D models according to the local revision of the input image without changing other 3D parts. Extensive experiments
+          are conducted to demonstrate that CMD decomposes a complex 3D
+          generation task into multiple components, improving the generation quality. Meanwhile, CMD enables efficient and flexible local
+          editing of a 3D model by just editing one rendered image.
+          </p><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="column">
+          <img src="static/assets/editing_pipeline.jpg" alt="pipeline" style="width:100%">
+        </div>
+          <p style="text-align: left;"><b>Editing pipeline.</b> Our method takes a 3D mesh and an edited rendering (target image) of this mesh as input and produces the edited 3D meshes while keeping other regions unchanged. CMD essentially consists of a CondMV that takes both target image and multiview conditions (RGB images and normal maps rendered from the given 3D mesh) as inputs and generates the multiview generations (RGB images and normal maps) that correspond to the target image. Then, CMD incrementally reconstructs the output meshes from the multiview generations.</p>
+      </div>
+    </div>
+  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="column">
+          <img src="static/assets/gen_pipeline.jpg" alt="pipeline" style="width:70%">
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <p><b>Progressive generation pipeline.</b> Based on CMD, we decompose the input complex 3D shapes into several parts by image
+    segmentation algorithm and then generate the shape in a
+    part-by-part manner.</p>
+
+    <br>
+    <br>
+
+    <div class="container is-max-desktop">
+       <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Comparison</h2>
+          <div class="column">
+            <img src="static/assets/feature.jpg" alt="pipeline" style="width:50%">
+          </div>
+        <p style="text-align: left;"><b>Overview of the properties of 3D editing methods.</b>
+        We consider the features of (a) image-based editing, (b) 3D-Guidance free, (c) high-quality mesh, (d) high-quality texture, and (e) running time. Without any explicit 3D guidance, our method supports image-based 3D editing and outputs high-quality edited textured mesh, which strictly follows the given image reference. The whole process takes less than 20 seconds and exhibits significant efficiency against existing 3D editing approaches.</p>
+        </div>
+        
+    </div>
+
+    <div class="column is-full-width">
+          <div class="column" style="text-align: center;">
+            <img src="static/assets/comp_edit_geo.png" alt="pipeline" style="width:70%">
+          </div>
+          <p style="text-align: center;"><b>Qualitative comparisons of 3D geometry editing.</b></p>
+        </div>
+    </div>
+   
+
+    <div class="column is-full-width">
+          <div class="column">
+            <img src="static/assets/comp_editing_appearance.png" alt="pipeline" style="width:100%">
+          </div>
+           <p style="text-align: center;"><b>Qualitative comparisons of 3D appearance editing.</b></p>
+        </div>
+    </div>
+   
+    <div class="container is-max-desktop">
+     <div class="columns is-centered has-text-centered"></div>
+        <div class="column is-full-width">
+          <div class="column">
+            <img src="static/assets/comp_gen.png" alt="pipeline" style="width:100%">
+          </div>
+           <p style="text-align: center;"><b>Comparisons with generation baselines.</b></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="column is-full-width">
+          <div class="column">
+            <img src="static/assets/comp_gen.png" alt="pipeline" style="width:100%">
+          </div>
+           <p style="text-align: center;"><b>Comparisons with generation baselines.</b></p>
+        </div>
+    </div> -->
+   
+  </section>
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Acknowledgement</h2>
+  
+          <div class="content has-text-justified">
+            <p>
+              This work is supported by Hong Kong Generative AI Research & Development Center (HKGAI) led by Prof. Yike Guo. We are grateful for the necessary GPU resources provided by both Hong Kong University of Science and Technology (HKUST).
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Concurrent Work. -->
+    </div>
+  </section>
+        
+  <section class="section" id="BibTeX">
+          <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+
+    <pre style="background-color:#e9eeef;padding: 1.25em 1.5em">
+<code>@article{li2025cmd,
+  title={CMD: Controllable Multiview Diffusion for 3D Editing and Progressive Generation},
+  author={Li, Peng and Ma, Suizhi and Chen, Jialiang and Liu, Yuan and Zhang, Chongyi and Xue, Wei and Luo, Wenhan and Sheffer, Alla and Wang, Wenping and Guo, Yike},
+  journal={arXiv preprint arXiv:2505.07003},
+  year={2025}
+}</code></pre> 
+        </div>
+        </section>
+        
+        
+        <footer class="footer">
+          <div class="container">
+            <div class="columns is-centered">
+              <div class="column is-8">
+                <div class="content">
+                  <p>
+                    We thank the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> team for providing this
+                    amazing website template.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+
+</body>
+</html>
